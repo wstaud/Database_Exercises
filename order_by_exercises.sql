@@ -6,9 +6,12 @@ WHERE gender = 'M'
 and (first_name = 'Irena' 
 or first_name = 'Vidya'
 or first_name = 'Maya')
-ORDER BY last_name, first_name;
+ORDER BY last_name DESC, first_name DESC;
 
-SELECT * FROM employees WHERE last_name LIKE 'E%';
+SELECT * 
+FROM employees 
+WHERE last_name LIKE 'E%'
+ORDER BY emp_no DESC;
 
 SELECT * FROM employees WHERE hire_date LIKE '199%';
 
