@@ -37,6 +37,8 @@ ORDER BY birth_date, hire_date DESC;
 SELECT count(*), first_name, last_name
 FROM employees 
 WHERE last_name LIKE '%q%' and last_name NOT LIKE '%qu%'
-GROUP BY last_name, first_name;
+GROUP BY last_name, first_name
+ORDER BY repeats DESC;
+
 
 
