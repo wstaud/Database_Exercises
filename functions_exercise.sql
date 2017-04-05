@@ -1,13 +1,12 @@
 USE employees;
 
-# Find number of each gender
-SELECT count(*), gender 
+SELECT * 
 FROM employees 
-WHERE first_name = 'Irena' 
+WHERE gender = 'M'
+and (first_name = 'Irena' 
 or first_name = 'Vidya'
-or first_name = 'Maya'
-GROUP BY gender; 
-
+or first_name = 'Maya')
+ORDER BY last_name DESC, first_name DESC;
 
 SELECT * 
 FROM employees 
