@@ -22,11 +22,21 @@ SELECT * FROM employees WHERE last_name LIKE '%q%';
 
 SELECT * FROM employees WHERE last_name LIKE 'E%' or last_name LIKE '%E';
 
-SELECT * FROM employees WHERE last_name LIKE 'E%' and last_name LIKE '%E';
+# combine first and last name
+SELECT CONCAT(first_name, last_name) 
+FROM employees 
+WHERE last_name LIKE 'E%' and last_name LIKE '%E';
 
-SELECT * FROM employees WHERE birth_date LIKE '%%%%-12-25'
+# Sort by name, show how many days hired, all born on Christmas in 1990s
+SELECT first_name, last_name, birth_date, hire_date, DATEDIFF(NOW(), hire_date) AS 'Days Hired'
+FROM employees WHERE birth_date LIKE '%%%%-12-25'
 AND hire_date LIKE '199%'
 ORDER BY birth_date, hire_date DESC;
 
-SELECT * FROM employees WHERE last_name LIKE '%q%' and last_name NOT LIKE '%qu%';
+# show names where last name has a 'q' in it but not 'qu'. SHow how many repeats
+SELECT count(*), first_name, last_name
+FROM employees 
+WHERE last_name LIKE '%q%' and last_name NOT LIKE '%qu%'
+GROUP BY last_name, first_name;
+
 
